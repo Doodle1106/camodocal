@@ -1,3 +1,8 @@
+This porject requires opencv non-free module to build most of its functionalities, however in my machine I have ROS installed which comes with opencv 3.3.1, I installed opencv 3.4.5 with opencv contrib built. I modified original cmake to make it look for opencv 3.4.5.
+
+
+
+
 CamOdoCal
 =========
  
