@@ -2,7 +2,6 @@ set(__required_dependencies CACHE INTERNAL "list of all required dependencies")
 set(__optional_dependencies CACHE INTERNAL "list of all optional dependencies")
 
 macro(camodocal_required_dependency _name)
-  find_package(${_name} REQUIRED)
 
   list(APPEND __required_dependencies ${_name})
   set(__required_dependencies ${__required_dependencies} CACHE INTERNAL "list of all required dependencies")
@@ -16,7 +15,12 @@ macro(camodocal_required_dependency _name)
 endmacro(camodocal_required_dependency _name)
 
 macro(camodocal_optional_dependency _name)
-  find_package(${_name})
+
+  if (${_name} STREQUAL "OpenCV")
+    find_package(OpenCV 3.4.5 REQUIRED)
+  else ()
+    find_package(${_name})
+  endif ()
 
   list(APPEND __optional_dependencies ${_name})
   set(__optional_dependencies ${__optional_dependencies} CACHE INTERNAL "list of all optional dependencies")
@@ -27,4 +31,3 @@ macro(camodocal_optional_dependency _name)
     set(${_name}_FOUND ${${_name_upper}_FOUND})
   endif (DEFINED ${_name}_FOUND)
 endmacro(camodocal_optional_dependency _name)
-
