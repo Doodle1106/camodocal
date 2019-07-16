@@ -1,9 +1,17 @@
+
+Build Process
+
 This porject requires opencv non-free module to build most of its functionalities, however in my machine I have ROS installed which comes with opencv 3.3.1, I installed opencv 3.4.5 with opencv contrib built. I modified original cmake to make it look for opencv 3.4.5.
 
 1. this project can be built with ceres 1.14.0, ceres master branch not capatible;
 2. I have tested many many eigen versions, and I found eigen 3.2.8 can run without annoying seg faults.
     wget -c -t 10  http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
 3. oh my...
+
+
+
+
+
 
 CamOdoCal
 =========
